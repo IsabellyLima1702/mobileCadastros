@@ -1,7 +1,9 @@
 package br.senai.sp.jandira.cadastroclinica.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -219,11 +221,25 @@ fun BebeRegistrationScreen(
             Spacer(modifier = Modifier.height(24.dp))
             
             // Bottom button
-            CustomButton(
-                text = "SALVAR",
-                onClick = onSave,
-                modifier = Modifier.fillMaxWidth()
-            )
+            OutlinedButton(
+                onClick = { },
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(40.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    containerColor = Color(0xFF6366F1),
+                    contentColor = Color.White
+                ),
+                border = BorderStroke(width = 0.5.dp, color = Color.White)
+
+            ) {
+                Text(
+                    text = "SALVAR",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.White
+                )
+            }
         }
     }
 }

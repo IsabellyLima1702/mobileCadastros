@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.cadastroclinica.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -8,9 +9,12 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.cadastroclinica.components.*
 import br.senai.sp.jandira.cadastroclinica.model.MedicoData
 
@@ -112,18 +116,26 @@ fun MedicoRegistrationScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                CustomButton(
-                    text = "← Voltar para o início",
-                    onClick = onNavigateBack,
-                    isSecondary = true,
-                    modifier = Modifier.weight(1f)
-                )
-                
-                CustomButton(
-                    text = "SALVAR",
-                    onClick = onSave,
-                    modifier = Modifier.weight(1f)
-                )
+
+                OutlinedButton(
+                    onClick = { },
+                    modifier = Modifier
+                        .width(100.dp)
+                        .height(40.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = Color(0xFFC5AF93),
+                        contentColor = Color.White
+                    ),
+                    border = BorderStroke(width = 0.5.dp, color = Color.White)
+
+                ) {
+                    Text(
+                        text = "SALVAR",
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.White
+                    )
+                }
             }
         }
     }

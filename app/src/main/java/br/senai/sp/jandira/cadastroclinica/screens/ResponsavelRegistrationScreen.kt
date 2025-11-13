@@ -1,5 +1,7 @@
 package br.senai.sp.jandira.cadastroclinica.screens
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -10,9 +12,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.cadastroclinica.components.*
 import br.senai.sp.jandira.cadastroclinica.model.ResponsavelData
 
@@ -23,7 +28,8 @@ fun ResponsavelRegistrationScreen(
     onNext: () -> Unit = {}
 ) {
     var responsavelData by remember { mutableStateOf(ResponsavelData()) }
-    
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -128,22 +134,24 @@ fun ResponsavelRegistrationScreen(
             }
             
             Spacer(modifier = Modifier.height(24.dp))
-            
-            // Bottom buttons
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+
+            OutlinedButton(
+                onClick = { },
+                modifier = Modifier
+                    .width(110.dp)
+                    .height(40.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    containerColor = Color(0xFF6366F1),
+                    contentColor = Color.White
+                ),
+                border = BorderStroke(width = 0.5.dp, color = Color.White)
+
             ) {
-                CustomButton(
-                    text = "← Voltar para o início",
-                    onClick = onNavigateBack,
-                    isSecondary = true
-                )
-                
-                CustomButton(
+                Text(
                     text = "PRÓXIMO",
-                    onClick = onNext,
-                    modifier = Modifier.weight(1f)
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.White
                 )
             }
         }
